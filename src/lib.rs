@@ -83,8 +83,8 @@ pub fn request<A: ToSocketAddrs>(addr: A) -> io::Result<protocol::Packet> {
 
     // Create the socket from which we will send the packet.
     let sock = UdpSocket::bind("0.0.0.0:0")?;
-    sock.set_read_timeout(Some(Duration::from_secs(5)))?;
-    sock.set_write_timeout(Some(Duration::from_secs(5)))?;
+    sock.set_read_timeout(Some(Duration::from_secs(50)))?;
+    sock.set_write_timeout(Some(Duration::from_secs(50)))?;
 
     // Send the data.
     let sz = sock.send_to(&bytes, addr)?;
